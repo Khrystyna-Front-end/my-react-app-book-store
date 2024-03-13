@@ -1,7 +1,7 @@
 import React from "react";
 import "./Book.css";
-import imageNotFound from "../../images/imageNotFound.png";
-import { _ } from "gridjs-react";
+import imageNotFound from "../images/imageNotFound.png";
+// import { _ } from "gridjs-react";
 import { Link } from "react-router-dom";
 
 export const Book = ({ data }) => {

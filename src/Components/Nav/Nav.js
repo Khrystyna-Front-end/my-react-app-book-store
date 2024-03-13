@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Nav.css";
-import avatarMini from "../../images/avatarMini.png";
-import cart from "../../images/cart.svg";
+import avatarMini from "../images/avatarMini.png";
+import cart from "../images/cart.svg";
 import logo from "../images/logo.jpeg";
 import { Link } from "react-router-dom";
 

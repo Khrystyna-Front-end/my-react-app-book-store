@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import BookListPage from "../BookList/BookListPage";
+// import BookListPage from "../BookList/BookListPage.js";
 import "./SignInForm.css";
 
 function SignInForm() {
@@ -21,35 +23,42 @@ function SignInForm() {
   };
   useEffect(() => {
     // Track all local states and validate the term
+
     validateUserName();
   }, [Username]);
+
   // return buttonDisabled;
   // };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label for="username" className="label form-label">
-        Username
-      </label>
-      <input
-        type="text"
-        className="login form-control d-block shadow-lg p-3 mb-5 bg-body rounded"
-        id="username"
-        placeholder="type Username"
-        required
-        onChange={(e) => setUserName(e.target.value)}
-      />
+    <>
+      <form onSubmit={handleSubmit}>
+        <label for="username" className="label form-label">
+          Username
+        </label>
+        <input
+          type="text"
+          className="login form-control d-block shadow-lg p-3 mb-5 bg-body rounded"
+          id="username"
+          placeholder="type Username"
+          required
+          onChange={(e) => setUserName(e.target.value)}
+        />
 
-      <button
-        disabled={buttonDisabled}
-        type="submit"
-        className="sign-in-btn btn btn-primary shadow-lg p-3 mb-5 rounded"
-      >
-        {/* <Link className="link-to-books" to="/books">
-          Sign-In
-        </Link> */}
-      </button>
-    </form>
+        <button
+          disabled={buttonDisabled}
+          type="submit"
+          className="sign-in-btn btn btn-primary shadow-lg p-3 mb-5 rounded"
+        >
+          <Link
+            className="link-to-books"
+            to={"books"}
+          >
+            Sign-In
+          </Link>
+        </button>
+      </form>
+    </>
   );
 }
 

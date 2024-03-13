@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { Link, useParams } from "react-router-dom";
-import imageNotFound from "../../images/imageNotFound.png";
+import imageNotFound from "../images/imageNotFound.png";
 
 import "./SpecificBook.css";
 import BookForm from "./BookForm.js";

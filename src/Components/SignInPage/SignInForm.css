@@ -23,9 +23,9 @@
   color: aliceblue;
   text-decoration: none;
 }
-.link-to-books: {
-  color: rgb(221, 252, 50);
-  text-decoration: underline;
+.link-to-books {
+  color: rgb(187, 204, 118);
+  text-decoration:none;
 }
 @media (width: 320px) {
   form {

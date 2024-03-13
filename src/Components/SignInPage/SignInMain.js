@@ -1,31 +1,32 @@
 import React from "react";
 import "./SignInMain.css";
 import SignInForm from "./SignInForm.js";
-// import "./H&H.css";
+// import "../Header&Footer/H&H.css";
 import avatar from "../images/avatar.png";
 import img1 from "../images/img1.jpg";
 import img2 from "../images/img2.jpg";
 import img3 from "../images/img3.jpg";
 import img4 from "../images/img4.jpg";
-// import ReactAudioPlayer from "react-audio-player";
-// import People from "../../audio/People.mp3";
 
-function makeSlideShow(slidesId) {
-  let slidesInner = document.querySelector(".slides-inner");
-  let images = document.querySelectorAll("#img");
+import AudioPlayer from "react-h5-audio-player";
+import People from "../../audio/People.mp3";
 
-  let index = 0;
+// function makeSlideShow(slidesId) {
+//   let slidesInner = document.querySelector(".slides-inner");
+//   let images = document.querySelectorAll("#img");
 
-  setInterval(function () {
-    index += 1;
-    if (index === images.length) {
-      index = 0;
-    }
+//   let index = 0;
 
-    slidesInner.style.transform = `translate3d(${index * -440}px, 0, 0)`;
-  }, 2000);
-}
-makeSlideShow("slides");
+//   setInterval(function () {
+//     index += 1;
+//     if (index === images.length) {
+//       index = 0;
+//     }
+
+//     slidesInner.style.transform = `translate3d(${index * -440}px, 0, 0)`;
+//   }, 2000);
+// }
+// makeSlideShow("slides");
 
 function SignInMain() {
   return (
@@ -37,8 +38,9 @@ function SignInMain() {
           alt="Фото"
           className="avatar d-block shadow-lg p-3 mb-5 bg-body rounded"
         />
+
         <SignInForm />
-        {/* <ReactAudioPlayer src={People} autoPlay controls /> */}
+        <AudioPlayer className="audioPlayer" src={People} autoPlay />
       </main>
 
       <div id="slides" className="slide-show">

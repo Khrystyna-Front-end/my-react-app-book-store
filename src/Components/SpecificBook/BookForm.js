@@ -53,9 +53,9 @@ const BookForm = () => {
     >
       <div className="price-book d-flex justify-content-between mb-3">
         <h4 className="sidebar-title">Price,$</h4>
-        <p className="book-cost" id="cost" key={bookCost}>
+        {/* <p className="book-cost" id="cost" key={bookCost}>
           {bookCost}
-        </p>
+        </p> */}
       </div>
       <section className="price d-flex justify-content-between mb-3">
         <label for="count" className="form-label ">
