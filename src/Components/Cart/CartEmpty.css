@@ -8,10 +8,11 @@ body {
 .purchase {
   margin: 5px 45px 5px auto;
 }
-.cartEmptyLogo {
+.cartEmptyLogo{
   width: 400px;
   height: 300px;
   margin: 0 auto;
+  
 }
 .textCartEmpty {
   margin-bottom: 50px;
