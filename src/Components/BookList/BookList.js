@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
+import { useNavigate} from "react-router-dom";
 import "./BookList.css";
 import Book from "../BookList/Book.js";
-import { books } from "../.././data.js";
+import { books } from "../../books.js";
+
+
 
 function BookList() {
+ 
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      const username = localStorage.getItem("Username");
+
+      if (!username) {
+        navigate("/");
+      }
+    }, [navigate]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState(1);
 
@@ -15,10 +29,8 @@ function BookList() {
     setSelectedFilter(filter);
   };
 
-  
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    
   };
 
   const search = (data) => {
@@ -86,7 +98,7 @@ function BookList() {
       <div className="row justify-content-center mt-5" id="book-shelf">
         <Book data={search(books)} />
       </div>
-          </>
+    </>
   );
 }
 

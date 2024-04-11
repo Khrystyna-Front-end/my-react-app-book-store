@@ -1,9 +1,8 @@
-// import React, { useState } from "react";
 import React, { useState, useEffect } from "react";
-import { books } from "../.././data.js";
+import { books } from "../../books.js";
 import { Link, useParams } from "react-router-dom";
 import "./BookForm.css";
-// import { Link } from "react-router-dom";
+
 
 const BookForm = () => {
   const [singleBook, setSingleBook] = useState([]);
@@ -31,7 +30,14 @@ const BookForm = () => {
     // cartItems.push(book);
     cartItems[book] = Number(count);
     localStorage.setItem("cart", JSON.stringify(cartItems));
+    localStorage.setItem("count", count); 
   }
+
+     
+     
+   
+     // Store the count in localStorage
+    
 
   function handleChange(event) {
     event.preventDefault();
@@ -53,9 +59,9 @@ const BookForm = () => {
     >
       <div className="price-book d-flex justify-content-between mb-3">
         <h4 className="sidebar-title">Price,$</h4>
-        {/* <p className="book-cost" id="cost" key={bookCost}>
+        <p className="book-cost" id="cost" key={bookCost}>
           {bookCost}
-        </p> */}
+        </p>
       </div>
       <section className="price d-flex justify-content-between mb-3">
         <label for="count" className="form-label ">

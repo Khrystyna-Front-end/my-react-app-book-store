@@ -1,11 +1,15 @@
 .nav {
   margin: 0;
   padding: 15px;
+  z-index: 99;
   text-align: left;
   font-size: 1.3em;
+  width: 100%;
   background-color: rgb(193, 193, 214);
   opacity: 0.8;
   justify-content: space-between;
+  /* position: fixed;
+  margin-bottom: 2000px; */
 }
 .logo {
   display: block;
@@ -31,7 +35,19 @@ h1 {
   transition: 0.5s;
   filter: brightness(240%);
 }
+.generalCount {
+  font-size: 14px;
 
+  background-color: rgb(243, 108, 175);
+
+  color: aliceblue;
+  border-radius: 25px;
+  margin: 0 auto;
+  text-align: justify;
+  padding: 1px;
+  position: absolute;
+  right: 280px;
+}
 .avatarMini {
   display: block;
   width: 30px;
