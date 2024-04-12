@@ -1,32 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Cart.css";
-import "./CartEmpty.css"
+import "./CartEmpty.css";
 import cart from "../images/cart.svg";
+import { books } from "../../books";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem("cart")) || {}
+    JSON.parse(localStorage.getItem("cart")) || []
   );
-  console.log(typeof cartItems);
-  console.log(cartItems);
+  const cartItemsTitle = Object.keys(cartItems);
+  const cartItemsCount = Object.values(cartItems);
 
-  const cartItems_ = Object.keys(cartItems);
+  const matchedBooks = books.filter((book) =>
+    cartItemsTitle.some((cartItemTitle) => cartItemTitle.includes(book.title))
+  );
+
+  // const cartItem=Object(cartItems);
+  // console.log(cartItem);
   // useEffect(() => {
   //   const items = JSON.parse(localStorage.getItem("cart")) || [];
   //   console.log(items)
   //   setCartItems(items);
   // }, []);
-  console.log(cartItems_);
+  // console.log(cartItems_);
+  // console.log(cartItems__);
+  // console.log(cartItem);
   const clearCart = () => {
     localStorage.removeItem("cart");
     setCartItems([]);
   };
-  if (cartItems_.length === 0) {
+  if (cartItemsTitle.length === 0) {
     return (
       <>
         <img
-          src={cart} 
+          src={cart}
           alt="Empty Cart"
           className="cartEmptyLogo d-block shadow-md p-3 mb-2 bg-body rounded text-center"
         />
@@ -49,7 +57,7 @@ const Cart = () => {
           type="submit"
           className="purchaseActive d-block btn btn-secondary shadow-sm p-3 rounded"
           onClick={clearCart}
-          disabled={cartItems_.length === 0}
+          disabled={cartItemsTitle.length === 0}
         >
           Purchase
         </button>
@@ -73,20 +81,68 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {cartItems_.map((item) => (
-              <>
-                <tr>
-                  <td>{item.title}</td>
-                  <td>{item.price}</td>
-                  <td>{item.count}</td>
-                  <td>{item.price * item.count}</td>
-                </tr>
-              </>
-            ))}
+            {matchedBooks.map((book) => {
+              // const cartItem_ = 
+              cartItemsTitle.find((item) =>
+                item.includes(book.title)
+              );
+{cartItemsCount.map((count)=>{
+              // const [title, price] = cartItem_.split(",");
+
+              // const count = parseInt(price);
+// const count = cartItemsCount.map();
+              return (
+                <>
+                  <tr key={book.id}>
+                    <td>{book.title}</td>
+                    <td>{book.price}</td>
+                    <td >{count}</td>
+                    <td>{book.price * count}</td>
+                  </tr>
+                </>
+              );
+              })}})}
           </tbody>
         </table>
       </div>
     );
+  }
+  {
+    /* // {cartItems_.map((item) => ( */
+  }
+  {
+    /* //               <>
+              
+//                 <tr>
+//                   <td>{item}</td> */
+  }
+  // {/*
+  //         <td>{item.price}</td>
+  //         <td>{item.count}</td>
+  //         <td>{item.price * item.count}</td> */}
+  {
+    /* //       </tr> */
+  }
+  {
+    /* //     </> */
+  }
+  {
+    /* //   ))} */
+  }
+  {
+    /* // </tbody> */
+  }
+  {
+    /* </table> */
+  }
+  {
+    /* </div> */
+  }
+  {
+    /* ); */
+  }
+  {
+    /* } */
   }
 
   {

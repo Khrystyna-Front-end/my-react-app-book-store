@@ -23,7 +23,7 @@ const BookForm = () => {
     let title = singleBook.title;
     let price = Number(singleBook.price);
     // let count = Number(count);
-    let book = [title, Number(price)];
+    let book = [title];
 
     const cartItems = JSON.parse(localStorage.getItem("cart")) || {};
 
