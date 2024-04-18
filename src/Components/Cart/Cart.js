@@ -104,7 +104,9 @@ const Cart = () => {
               return (
                 <>
                   <tr key={book.id}>
-                    <td className="border">{book.title}</td>
+                    <td className="border">
+                      <Link to={`/books/${book.id}`}>{book.title}</Link>
+                    </td>
                     <td className="border">{book.price}</td>
                     <td className="border" key={cartItemsCount.id}>
                       {count}

@@ -2,6 +2,11 @@
   padding: 0;
   text-align: center;
 }
+.footer {
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+}
 .header hr,
 .footer hr {
   margin-bottom: 5px;
@@ -24,3 +29,23 @@
   color: black;
   text-decoration: double;
 }
+/* .cart-footer { 
+  /* background-color: red; */
+/* margin: 120px auto;
+} */
+ @media screen and (max-width : 1024px) { 
+*{
+  background-color: red;
+
+}
+ }
+ @media screen and (max-width : 800px) { 
+  *{
+background-color: blue;
+ } } 
+@media screen and (max-width : 420px) { 
+  *{
+    background-color: blueviolet;
+    
+  }
+} 
