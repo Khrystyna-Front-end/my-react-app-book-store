@@ -19,17 +19,26 @@
   font-weight: 900;
   margin-bottom: 105px;
 }
-@media screen and (max-width : 1024px) { 
-*{
-  background-color: red;
+.link-book-title {
+  text-decoration: none;
+  color: rgb(34, 34, 128);
+  font-weight: 500;
 }
- }
- @media screen and (max-width : 800px) { 
-  *{
-background-color: blue;
- } } 
-@media screen and (max-width : 420px) { 
-  *{
+.link-book-title:hover {
+  color: rgb(122, 122, 236);
+}
+@media screen and (max-width: 1024px) {
+  * {
+    background-color: red;
+  }
+}
+@media screen and (max-width: 800px) {
+  * {
+    background-color: blue;
+  }
+}
+@media screen and (max-width: 420px) {
+  * {
     background-color: blueviolet;
   }
-} 
+}
