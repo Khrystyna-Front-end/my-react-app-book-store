@@ -10,12 +10,21 @@ const Cart = () => {
     JSON.parse(localStorage.getItem("cart")) || []
   );
   const cartItemsTitle = Object.keys(cartItems);
+  console.log(cartItemsTitle);
   const cartItemsCount = Object.values(cartItems);
+  console.log(cartItemsCount);
 
   const matchedBooks = books.filter((book) =>
     cartItemsTitle.some((cartItemTitle) => cartItemTitle.includes(book.title))
   );
-
+  const totalPrice = matchedBooks
+    .reduce((acc, book) => {
+      const count = cartItems[book.title];
+      const price = book.price * count;
+      acc += price;
+      return acc;
+    }, 0)
+    .toFixed(2);
   // const cartItem=Object(cartItems);
   // console.log(cartItem);
   // useEffect(() => {
@@ -82,71 +91,80 @@ const Cart = () => {
           </thead>
           <tbody>
             {matchedBooks.map((book) => {
-              // const cartItem_ = 
-              cartItemsTitle.find((item) =>
-                item.includes(book.title)
-              );
-{cartItemsCount.map((count)=>{
+              const count = cartItems[book.title];
+              const price = (book.price * count).toFixed(2);
+
+              // console.log(cartItemsCount)
+              // const cartItem_ =
+
               // const [title, price] = cartItem_.split(",");
 
               // const count = parseInt(price);
-// const count = cartItemsCount.map();
+              // const count = cartItemsCount.map();
               return (
                 <>
                   <tr key={book.id}>
-                    <td>{book.title}</td>
-                    <td>{book.price}</td>
-                    <td >{count}</td>
-                    <td>{book.price * count}</td>
+                    <td className="border">{book.title}</td>
+                    <td className="border">{book.price}</td>
+                    <td className="border" key={cartItemsCount.id}>
+                      {count}
+                    </td>
+
+                    <td className="border">{price}</td>
                   </tr>
                 </>
               );
-              })}})}
+            })}
+            <tr>
+              <td colSpan="3"></td>
+              <td className="border fw-bold">{totalPrice}</td>
+            </tr>
           </tbody>
         </table>
       </div>
     );
   }
-  {
-    /* // {cartItems_.map((item) => ( */
-  }
-  {
-    /* //               <>
+};
+
+{
+  /* // {cartItems_.map((item) => ( */
+}
+{
+  /* //               <>
               
 //                 <tr>
 //                   <td>{item}</td> */
-  }
-  // {/*
-  //         <td>{item.price}</td>
-  //         <td>{item.count}</td>
-  //         <td>{item.price * item.count}</td> */}
-  {
-    /* //       </tr> */
-  }
-  {
-    /* //     </> */
-  }
-  {
-    /* //   ))} */
-  }
-  {
-    /* // </tbody> */
-  }
-  {
-    /* </table> */
-  }
-  {
-    /* </div> */
-  }
-  {
-    /* ); */
-  }
-  {
-    /* } */
-  }
+}
+// {/*
+//         <td>{item.price}</td>
+//         <td>{item.count}</td>
+//         <td>{item.price * item.count}</td> */}
+{
+  /* //       </tr> */
+}
+{
+  /* //     </> */
+}
+{
+  /* //   ))} */
+}
+{
+  /* // </tbody> */
+}
+{
+  /* </table> */
+}
+{
+  /* </div> */
+}
+{
+  /* ); */
+}
+{
+  /* } */
+}
 
-  {
-    /* {cartItems.length === 0 && (
+/* {cartItems.length === 0 && (
         <>
           <img
             src={cart}
@@ -156,7 +174,5 @@ const Cart = () => {
           <p className="textCartEmpty">Cart empty...</p>
         </>
       )} */
-  }
-};
 
 export default Cart;
