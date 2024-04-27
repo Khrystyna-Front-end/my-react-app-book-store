@@ -29,10 +29,7 @@
   color: black;
   text-decoration: double;
 }
-/* .cart-footer { 
-  /* background-color: red; */
-/* margin: 120px auto;
-} */
+
  @media screen and (max-width : 1024px) { 
 *{
   background-color: red;

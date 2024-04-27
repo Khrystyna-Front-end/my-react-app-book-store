@@ -17,12 +17,13 @@
   border: 1px solid rgb(112, 111, 111);
   border-radius: 25px;
 }
-h1, .name_store {
+h1,
+.name_store {
   margin-left: 10px;
   font-size: 30px;
   color: rgb(255, 255, 255);
   font-family: "Monoton", cursive;
-text-decoration: none;
+  text-decoration: none;
   word-spacing: 5px;
 }
 
@@ -37,9 +38,7 @@ text-decoration: none;
 }
 .generalCount {
   font-size: 14px;
-
   background-color: rgb(243, 108, 175);
-
   color: aliceblue;
   border-radius: 25px;
   margin: 0 auto;
@@ -75,7 +74,8 @@ h6 {
   transform: scale(1.1);
   z-index: 2;
 }
-.input__wrapper, .dataModal {
+.input__wrapper,
+.dataModal {
   /* margin: 10px 0; */
   /* display: flex; */
   /* flex-direction: row; */
@@ -100,20 +100,21 @@ h6 {
 }
 .dataModal {
   width: 15%;
-  height: 20%;  
+  height: 20%;
 }
 .input__button {
   opacity: 0.5;
   visibility: visible;
-
   /* position: absolute; */
 }
 
-.input__file-button-text,  .input__name-button-text{
+.input__file-button-text,
+.input__name-button-text {
   text-align: center;
 }
 
-.input__file-button, .input__name-button {
+.input__file-button,
+.input__name-button {
   width: 100%;
   max-width: 290px;
   height: 60px;
@@ -134,11 +135,28 @@ h6 {
   cursor: pointer;
   margin: 0 auto;
 }
-.input__file, .input__name {
+.input__file,
+.input__name {
   opacity: 0;
   visibility: hidden;
   position: absolute;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-spin infinite 3s linear;
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
 @media screen and (max-width: 1024px) {
   * {
     background-color: red;

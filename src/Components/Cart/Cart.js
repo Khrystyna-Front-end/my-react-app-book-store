@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Cart.css";
-import "./CartEmpty.css";
-import cart from "../images/cart.svg";
+import "../Cart/Cart.css";
+
+import cart from "../../media/images/cart.svg";
 import { books } from "../../books";
 
 const Cart = () => {
@@ -39,6 +39,24 @@ const Cart = () => {
     localStorage.removeItem("cart");
     setCartItems([]);
   };
+
+  const handleBuying=()=>{
+    const email = prompt('Please enter your email to connect with you');
+     
+    const isValidEmail = validateEmail(email);
+    if (isValidEmail) {
+      alert("Good");
+      // Send request to the server
+    } else {
+      alert('Invalid email');
+    }
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   if (cartItemsTitle.length === 0) {
     return (
       <>
@@ -50,7 +68,7 @@ const Cart = () => {
         <p className="textCartEmpty">Cart empty...</p>
         <button
           type="button"
-          className="btn btn-outline-dark btn-sm d-block "
+          className="btn btn-outline-dark btn-sm d-block"
           id="button-back"
         >
           <Link to="/books" className="link-back text-decoration-none">
@@ -105,7 +123,12 @@ const Cart = () => {
                 <>
                   <tr key={book.id}>
                     <td className="border">
-                      <Link to={`/books/${book.id}`}className="link-book-title">{book.title}</Link>
+                      <Link
+                        to={`/books/${book.id}`}
+                        className="link-book-title"
+                      >
+                        {book.title}
+                      </Link>
                     </td>
                     <td className="border">{book.price}</td>
                     <td className="border" key={cartItemsCount.id}>
@@ -123,6 +146,11 @@ const Cart = () => {
             </tr>
           </tbody>
         </table>
+        <button type="button" className="btn btn-outline-dark " id="button" onClick={handleBuying}>
+          {/* <Link to="/books" className="link-back text-decoration-none"> */}
+           Buy
+          {/* </Link> */}
+        </button>
       </div>
     );
   }

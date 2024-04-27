@@ -1,25 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./Nav.css";
-import avatarMini from "../images/avatarMini.png";
-import cart from "../images/cart.svg";
-import logo from "../images/logo.jpeg";
+import avatarMini from "../../media/images/avatarMini.png";
+import cart from "../../media/images/cart.svg";
+import logo from "../../media/images/logo.jpeg";
 import { Link } from "react-router-dom";
 
 function Nav() {
-  // const Username = localStorage.getItem("Username");
+  const Username = localStorage.getItem("Username");
    const [showImageModal, setShowImageModal] = useState(false);
 
    const [avatar, setAvatar] = useState(
      localStorage.getItem("avatar") || avatarMini
    );
   
-    const [showDataModal, setShowDataModal] = useState(false);
-
-    const [username, setUsername] = useState(localStorage.getItem("Username"));
-
-
-
-
    useEffect(() => {
      localStorage.setItem("avatar", avatar);
    }, [avatar]);
@@ -44,8 +37,6 @@ function Nav() {
      setShowImageModal(false);
    };
 
-
-     
   // const [count, setCount] = useState(localStorage.getItem("count") || 0);
 
   // Update count when the component mounts
@@ -69,13 +60,6 @@ function Nav() {
     localStorage.clear();
     window.location.reload();
   };
-  const handleDataClick = () => {
-    setShowDataModal(!showDataModal);
-  };
-
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
 
   const data = JSON.parse(localStorage.getItem("cart")) || {};
 
@@ -93,9 +77,7 @@ function Nav() {
         <div className="left-side d-flex">
           <img src={logo} alt="Logo" width="42" height="38" className="logo" />
           <h1>
-            <Link to="/books" className="name_store">
-              JS BAND STORE / Your full name
-            </Link>
+            <Link to="/books" className="name_store">JS BAND STORE / Your full name</Link>
           </h1>
         </div>
         <div className="right-side d-flex">
@@ -122,21 +104,8 @@ function Nav() {
             className="avatarMini"
             onClick={handleImageClick}
           />
-          <h6 className="userName" onClick={handleDataClick}>
-            {username ? `${username}` : "username"}
-          </h6>
+          <h6 className="userName">{Username ? `${Username}` : "Username"}</h6>
 
-          {/* {showDataModal && (
-            <div className="dataModal">
-              <input
-                type="text"
-                placeholder="Username"
-                value={username}
-                onChange={handleUsernameChange}
-              /> */}
-          {/* Add inputs for email, phone number, and city */}
-          {/* </div>
-          )} */}
         </div>
         {showImageModal && (
           <div className="input__wrapper">
@@ -150,26 +119,7 @@ function Nav() {
             <label for="input__file" className="input__file-button">
               <span className="input__file-button-text">Choose photo</span>
             </label>
-            <button className="input__button" onClick={handleCloseModal}>
-              X
-            </button>
-          </div>
-        )}
-        {showDataModal && (
-          <div className="dataModal">
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={handleUsernameChange}
-              id="input__name"
-            />
-            <label for="input__name" className="input__name-button">
-              <span className="input__name-button-text">Username</span>
-            </label>
-            <button className="input__button" onClick={handleCloseModal}>
-              X
-            </button>
+            <button className="input__button" onClick={handleCloseModal}>X</button>
           </div>
         )}
       </div>
